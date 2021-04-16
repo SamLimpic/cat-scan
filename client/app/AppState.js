@@ -2,11 +2,14 @@ import { EventEmitter } from './Utils/EventEmitter.js'
 import { isValidProp } from './Utils/isValidProp.js'
 
 class AppState extends EventEmitter {
-  user = {}
+  // user = {}
   account = {}
-  values = []
+  cats = {}
+  comments = {}
+  votes = {}
 }
 
+// Magic
 export const ProxyState = new Proxy(new AppState(), {
   get(target, prop) {
     isValidProp(target, prop)
