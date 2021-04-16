@@ -21,7 +21,7 @@ export class VotesController extends BaseController {
     }
   }
 
-  async post(req, res, next) {
+  async create(req, res, next) {
     try {
       // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
       req.body.creatorId = req.userInfo.id
