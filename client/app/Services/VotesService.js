@@ -4,7 +4,7 @@ import { api } from './AxiosService.js'
 
 class VotesService {
   async getVotes() {
-    const res = await api.get('votes')
+    const res = await api.get('api/votes')
     ProxyState.votes = res.data
     // ProxyState.votes = res.data.map(c => new Vote(c))
   }

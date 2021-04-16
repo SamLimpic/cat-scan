@@ -5,7 +5,7 @@ import { api } from './AxiosService.js'
 class AccountService {
   async getAccount() {
     try {
-      const res = await api.get('/account')
+      const res = await api.get('api/account')
       ProxyState.account = res.data
       return res.data
     } catch (error) {
@@ -14,7 +14,7 @@ class AccountService {
   }
 
   async createAccount(newAccount) {
-    const res = await api.post('account', newAccount)
+    const res = await api.post('api/account', newAccount)
 
     res.data.id = res.data._id
     const account = new Account(res.data)
@@ -22,7 +22,7 @@ class AccountService {
   }
 
   async deleteAccount(id) {
-    await api.delete('account/' + id)
+    await api.delete('api/account/' + id)
     ProxyState.account = ProxyState.account.filter(account => account.id !== id)
   }
 }

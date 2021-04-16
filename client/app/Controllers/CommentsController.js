@@ -15,6 +15,8 @@ function _draw() {
 export default class CommentsController {
   constructor() {
     ProxyState.on('comments', _draw)
+
+    this.getComments()
   }
 
   async getComments() {

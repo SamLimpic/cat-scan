@@ -15,6 +15,8 @@ function _draw() {
 export default class CatsController {
   constructor() {
     ProxyState.on('cats', _draw)
+
+    this.getCats()
   }
 
   async getCats() {
