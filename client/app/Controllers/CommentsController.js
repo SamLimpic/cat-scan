@@ -5,9 +5,7 @@ import { commentsService } from '../Services/CommentsService.js'
 function _draw() {
   const comments = ProxyState.comments
   let template = ''
-  comments.forEach(c => {
-    template += c.Template
-  })
+  comments.forEach(comment => { template += comment.Template })
   document.getElementById('comments').innerHTML = template
 }
 
@@ -16,7 +14,7 @@ export default class CommentsController {
   constructor() {
     ProxyState.on('comments', _draw)
 
-    this.getComments()
+    // this.getComments() | NOTE >>> should draw when button is clicked right?
   }
 
   async getComments() {
