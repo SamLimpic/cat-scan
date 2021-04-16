@@ -1,8 +1,9 @@
 import { ProxyState } from '../AppState.js'
-import Vote from '../Models/Vote.js'
+import { api } from './AxiosService.js'
+// import Vote from '../Models/Vote.js'
 
 class VotesService {
-  async getVote() {
+  async getVotes() {
     const res = await api.get('votes')
     ProxyState.votes = res.data
     // ProxyState.votes = res.data.map(c => new Vote(c))

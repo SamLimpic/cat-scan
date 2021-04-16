@@ -1,5 +1,6 @@
 import { ProxyState } from '../AppState.js'
 import Cat from '../Models/Cat.js'
+import { api } from './AxiosService.js'
 
 class CatsService {
   async getCats() {
@@ -17,7 +18,7 @@ class CatsService {
 
   async deleteCat(id) {
     await api.delete('cats/' + id)
-    ProxyState.cats = ProxyState.cats.filter(cat => cat.id != id)
+    ProxyState.cats = ProxyState.cats.filter(cat => cat.id !== id)
   }
 
   // TODO needs vote function
