@@ -16,6 +16,7 @@ export class CatsController extends BaseController {
   async getAll(req, res, next) {
     try {
       const cats = await catsService.getAll(req.query)
+      res.send(cats)
     } catch (error) {
       next(error)
     }
