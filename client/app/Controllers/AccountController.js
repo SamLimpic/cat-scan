@@ -10,7 +10,7 @@ function _draw() {
 // Public
 export default class AccountController {
   constructor() {
-    ProxyState.on('accounts', _draw)
+    ProxyState.on('account', _draw)
   }
 
   async getAccount() {
