@@ -6,7 +6,6 @@ class CommentsService {
     return await dbContext.Comments.find(query)
       .populate('account', 'userName')
       .populate('body')
-      .populate('imgUrl')
   }
 
   async post(body) {
