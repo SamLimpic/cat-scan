@@ -2,16 +2,16 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
-const Comment = new Schema(
+const Cat = new Schema(
   {
     body: { type: String, required: true },
-    voteBoolean: { type: Boolean, required: true },
+    imgUrl: { type: String, required: true },
     voteCount: { type: Number, required: true },
-
-    voteId: { type: ObjectId, ref: ' vote ', required: true },
-    catId: { type: ObjectId, ref: ' cat ', required: true }
+    posCount: { type: Number, required: false },
+    negCount: { type: Number, required: false },
+    accountId: { type: ObjectId, ref: 'Account', required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
 
-export default Comment
+export default Cat
