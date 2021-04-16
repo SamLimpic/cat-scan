@@ -36,7 +36,7 @@ export class CatsController extends BaseController {
   async edit(req, res, next) {
     try {
       req.body.id = req.params.id
-      let data = await catsService.edit(req.body)
+      const data = await catsService.edit(req.body)
       return res.send(data)
     } catch (error) {
       next(error)
@@ -45,7 +45,7 @@ export class CatsController extends BaseController {
 
   async delete(req, res, next) {
     try {
-      let data = await catsService.delete(req.params.id)
+      const data = await catsService.delete(req.params.id)
       return res.send(data)
     } catch (error) {
       next(error)
