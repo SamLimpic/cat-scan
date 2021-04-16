@@ -1,6 +1,8 @@
 import { ProxyState } from '../AppState.js'
 import { accountService } from '../Services/AccountService.js'
 
+// NOTE do we need this controller? DELETE or KEEP
+
 // Private
 function _draw() {
   const data = ProxyState.account

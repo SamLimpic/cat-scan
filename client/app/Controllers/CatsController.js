@@ -5,9 +5,7 @@ import { catsService } from '../Services/CatsService.js'
 function _draw() {
   const cats = ProxyState.cats
   let template = ''
-  cats.forEach(c => {
-    template += c.Template
-  })
+  cats.forEach(cat => { template += cat.Template })
   document.getElementById('cats').innerHTML = template
 }
 
