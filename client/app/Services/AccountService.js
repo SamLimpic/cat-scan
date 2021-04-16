@@ -6,7 +6,7 @@ class AccountService {
   async getAccount() {
     try {
       const res = await api.get('/account')
-      ProxyState.accounts = res.data
+      ProxyState.account = res.data
       return res.data
     } catch (error) {
       console.error(error)
@@ -14,16 +14,16 @@ class AccountService {
   }
 
   async createAccount(newAccount) {
-    const res = await api.post('accounts', newAccount)
+    const res = await api.post('account', newAccount)
 
     res.data.id = res.data._id
     const account = new Account(res.data)
-    ProxyState.accounts = [...ProxyState.accounts, account]
+    ProxyState.account = account
   }
 
   async deleteAccount(id) {
-    await api.delete('accounts/' + id)
-    ProxyState.accounts = ProxyState.accounts.filter(account => account.id != id)
+    await api.delete('account/' + id)
+    ProxyState.account = ProxyState.account.filter(account => account.id !== id)
   }
 }
 

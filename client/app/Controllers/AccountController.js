@@ -3,7 +3,7 @@ import { accountService } from '../Services/AccountService.js'
 
 // Private
 function _draw() {
-  const data = ProxyState.accounts
+  const data = ProxyState.account
   return data
 }
 

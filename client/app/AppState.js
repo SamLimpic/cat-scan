@@ -2,11 +2,11 @@ import { EventEmitter } from './Utils/EventEmitter.js'
 import { isValidProp } from './Utils/isValidProp.js'
 
 class AppState extends EventEmitter {
-  // user = {}
+  user = {}
   account = {}
-  cats = {}
-  comments = {}
-  votes = {}
+  cats = []
+  comments = []
+  votes = []
 }
 
 // Magic
