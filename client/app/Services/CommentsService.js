@@ -4,20 +4,20 @@ import { api } from './AxiosService.js'
 
 class CommentsService {
   async getComments() {
-    const res = await api.get('api/comment')
+    const res = await api.get('api/comments')
     ProxyState.comments = res.data
     // ProxyState.comments = res.data.map(c => new Comment(c))
   }
 
   async createComment(newComment) {
-    const res = await api.post('api/comment', newComment)
+    const res = await api.post('api/comments', newComment)
     res.data.id = res.data._id
     const comment = new Comment(res.data)
     ProxyState.comments = [...ProxyState.comments, comment]
   }
 
   async deleteComment(id) {
-    await api.delete('api/comment/' + id)
+    await api.delete('api/comments/' + id)
     ProxyState.comments = ProxyState.comments.filter(comment => comment.id !== id)
   }
 
