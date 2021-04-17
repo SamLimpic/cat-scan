@@ -24,6 +24,39 @@ export default class CommentsController {
       console.error(error)
     }
   }
+  async getNewest() {
+    try {
+      await commentsService.getNewest()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async getOldest() {
+    try {
+      await commentsService.getOldest()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  async getPopular() {
+    try {
+      await commentsService.getPopular()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async getControversial() {
+    try {
+      await commentsService.getControversial()
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+
+
 
   async createComment() {
     try {
