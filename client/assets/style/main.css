@@ -10731,3 +10731,12 @@ main {
     width:2rem;
   height: 2rem;
 }
+
+.title-sizing{
+  width: 20rem;
+}
+
+.add-cat{
+  width:10 rem;
+  height:10 rem 
+}
