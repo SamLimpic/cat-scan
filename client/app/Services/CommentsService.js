@@ -3,6 +3,22 @@ import Comment from '../Models/Comment.js'
 import { api } from './AxiosService.js'
 
 class CommentsService {
+  getControversial() {
+    throw new Error('Method not implemented.')
+  }
+
+  getPopular() {
+    throw new Error('Method not implemented.')
+  }
+
+  getOldest() {
+    throw new Error('Method not implemented.')
+  }
+
+  getNewest() {
+    throw new Error('Method not implemented.')
+  }
+
   async getComments() {
     const res = await api.get('api/comments')
     ProxyState.comments = res.data

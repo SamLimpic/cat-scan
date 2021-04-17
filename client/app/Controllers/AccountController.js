@@ -5,8 +5,6 @@ import { accountService } from '../Services/AccountService.js'
 
 // Private
 function _draw() {
-  const data = ProxyState.account
-  return data
 }
 
 // Public

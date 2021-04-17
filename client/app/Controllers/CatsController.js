@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ProxyState } from '../AppState.js'
 import { catsService } from '../Services/CatsService.js'
 
@@ -9,18 +10,11 @@ function _draw() {
   document.getElementById('cats').innerHTML = template
 }
 
-function _commentButtonDraw(postId) {
-  // name the id in the cats.Template ${this.id}
-  document.getElementById(postId).innerHTML = /* html */`
-  `
-}
-
 // Public
 export default class CatsController {
   constructor() {
+    ProxyState.on('account', this.getCats)
     ProxyState.on('cats', _draw)
-
-    this.getCats()
   }
 
   async getCats() {
@@ -63,7 +57,12 @@ export default class CatsController {
   async upVote(id) {
     try {
       await catsService.upVote(id)
-      _commentButtonDraw(id)
+      const cat = ProxyState.cats.find(c => c.id === id)
+      cat.disabled = 'disabled'
+      document.getElementById(`${id + '-neg'}`).classList.add('text-secondary')
+      document.getElementById(`${id + '-neg'}`).classList.remove('text-danger')
+      document.getElementById(`${id + '-cat'}`).classList.add('d-none')
+      document.getElementById(`${id + '-comment'}`).classList.remove('d-none')
     } catch (error) {
       console.error(error)
     }
@@ -72,7 +71,12 @@ export default class CatsController {
   async downVote(id) {
     try {
       await catsService.downVote(id)
-      _commentButtonDraw(id)
+      const cat = ProxyState.cats.find(c => c.id === id)
+      cat.disabled = 'disabled'
+      document.getElementById(`${id + '-pos'}`).classList.add('text-secondary')
+      document.getElementById(`${id + '-pos'}`).classList.remove('text-info')
+      document.getElementById(`${id + '-cat'}`).classList.add('d-none')
+      document.getElementById(`${id + '-comment'}`).classList.remove('d-none')
     } catch (error) {
       console.error(error)
     }

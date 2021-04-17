@@ -4,13 +4,8 @@ import { api } from './AxiosService.js'
 
 class AccountService {
   async getAccount() {
-    try {
-      const res = await api.get('api/account')
-      ProxyState.account = res.data
-      return res.data
-    } catch (error) {
-      console.error(error)
-    }
+    const res = await api.get('api/account')
+    ProxyState.account = new Account(res.data)
   }
 
   async createAccount(newAccount) {

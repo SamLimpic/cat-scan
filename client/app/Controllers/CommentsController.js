@@ -24,6 +24,7 @@ export default class CommentsController {
       console.error(error)
     }
   }
+
   async getNewest() {
     try {
       await commentsService.getNewest()
@@ -39,6 +40,7 @@ export default class CommentsController {
       console.error(error)
     }
   }
+
   async getPopular() {
     try {
       await commentsService.getPopular()
@@ -54,9 +56,6 @@ export default class CommentsController {
       console.error(error)
     }
   }
-
-
-
 
   async createComment() {
     try {

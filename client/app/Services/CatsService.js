@@ -40,13 +40,18 @@ class CatsService {
   async upVote(id) {
     const cat = ProxyState.cats.find(c => c.id === id)
     cat.posCount++
-    await api.put('api/cats/' + id, cat.posCount)
+    cat.voteCount++
+    await api.put('api/cats/' + id, cat)
+    ProxyState.cats = ProxyState.cats
+    console.log(cat)
   }
 
   async downVote(id) {
     const cat = ProxyState.cats.find(c => c.id === id)
-    cat.negCount++
-    await api.put('api/cats/' + id, cat.negCount)
+    cat.negCount--
+    cat.voteCount--
+    await api.put('api/cats/' + id, cat)
+    ProxyState.cats = ProxyState.cats
   }
 }
 

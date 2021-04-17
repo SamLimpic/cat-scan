@@ -15,40 +15,30 @@
     <title>client</title>
 </head>
 
-<body>
-    <header>
-        <nav class="navbar navbar-expand header-details mb-md-2  text-center">
-
-            <div class="col-12">
-
+<body class="bg-secondary">
+    <header class="bg-info">
+        <nav class="navbar navbar-expand header-details justify-content-around text-center">
+            <div class="col-md-9">
                 <a class="navbar-brand" href="#">
-                    <img class="title-sizing" src="./assets/img/heading.png" alt="Cat Scan app title">
+                    <img class="title-sizing py-2 img-fluid border-bottom" src="./assets/img/heading.png"
+                        alt="Cat Scan app title">
                 </a>
                 <div class="row text-right justify-content-end">
-                    <div class="col-6 col-md-3 p-0">
-
-
+                    <div class="col p-0">
                         <div class=" text-small flex-grow-1 justify-content-end align-items-center d-flex"
                             id="authstate">
                         </div>
                     </div>
-
                 </div>
             </div>
-
-
-
         </nav>
     </header>
 
     <main class="container-fluid">
-        <div class="row justify-content-end">
-            <button type="button" class="btn btn-primary add-cat shadow"
+        <div class="row justify-content-center">
+            <button type="button" class="col-md-2 col-6 btn btn-lg btn-primary add-cat shadow mt-4 mb-2"
                 onclick="app.catsController.createCat()"><b>Generate Cat</b></button>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-secondary shadow mx-5" data-toggle="modal" data-target="#exampleModal">
-                sort posts
-            </button>
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

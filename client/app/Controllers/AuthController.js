@@ -2,9 +2,9 @@ import { ProxyState } from '../AppState.js'
 import { AuthService } from '../Services/AuthService.js'
 
 function drawUser() {
-  const user = ProxyState.user
+  const user = ProxyState.account
   const userAvatar = avatarTemplate(user)
-  const button = authButton(user)
+  const button = authButton(ProxyState.user)
 
   const template = /* html */ `
     ${userAvatar}
@@ -15,7 +15,7 @@ function drawUser() {
 
 export class AuthController {
   constructor() {
-    ProxyState.on('user', drawUser)
+    ProxyState.on('account', drawUser)
     AuthService.on(AuthService.AUTH_EVENTS.LOADED, drawUser)
     drawUser()
   }
@@ -39,9 +39,9 @@ export class AuthController {
 
 function authButton(user) {
   if (AuthService.loading) { return '' }
-  return user.isAuthenticated
+  return ProxyState.user.isAuthenticated
     ? /* html */ `
-    <button class="btn p-0 btn-small btn bg-none text-danger" onclick="app.authController.logout()">...</button>
+    <button class="btn btn-lg px-0" onclick="app.authController.logout()"><i class="fas fa-times text-danger voting"></i></button>
   `
     : /* html */ `
     <button class="btn btn-dark" onclick="app.authController.login()">login</button>
@@ -49,10 +49,15 @@ function authButton(user) {
 }
 
 function avatarTemplate(user) {
-  return user.isAuthenticated
+  return ProxyState.user.isAuthenticated
     ? /* html */ `
+    <button type="button" class="col-md-2 col-4 btn btn-dark shadow mr-auto" data-toggle="modal"
+                data-target="#exampleModal">
+                Sort Posts
+            </button>
     <div class="mr-2">
-    <span class="mx-1">${user.name}</span>
+    ${user.avatar}
+    <span class="mx-1 text-center">${user.username}</span>
     </div>`
     : AuthService.loading
       ? /* html */ `

@@ -10698,7 +10698,7 @@ main {
 /*# sourceMappingURL=main.css.map */
 
 
-.img-size{
+/* .img-size{
   object-fit: cover;
   width:19em;
   height: 19rem;
@@ -10711,7 +10711,7 @@ main {
   width:22em;
   height: 22rem;
 }
-}
+} */
 
 .row-placement{
   justify-content: center;
@@ -10728,8 +10728,8 @@ main {
   font-size: 25px;
 }
 .paw{
-    width:2rem;
-  height: 2rem;
+  width:3rem;
+  height: 3rem;
 }
 
 .title-sizing{
