@@ -9,9 +9,16 @@ const Cat = new Schema(
     voteCount: { type: Number, required: true, default: 0 },
     posCount: { type: Number, required: false, default: 0 },
     negCount: { type: Number, required: false, default: 0 },
-    accountId: { type: ObjectId, ref: 'Account', required: true }
+    accountId: { type: String, ref: 'Account', required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
+
+Cat.virtual('creator', {
+  localField: 'accountId',
+  ref: 'Account',
+  foreignField: '_id',
+  justOne: true
+})
 
 export default Cat

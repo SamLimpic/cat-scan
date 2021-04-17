@@ -6,9 +6,9 @@ const Post = new Schema(
   {
     body: { type: String, required: true },
     voteCount: { type: Number, required: true, default: 0 },
-    voteBoolean: { type: ObjectId, ref: ' vote ', required: true },
+    voteBoolean: { type: ObjectId, ref: 'Vote', required: true },
     accountId: { type: ObjectId, ref: 'Account', required: true },
-    catId: { type: ObjectId, ref: ' cat ', required: true }
+    catId: { type: ObjectId, ref: 'Cat', required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
