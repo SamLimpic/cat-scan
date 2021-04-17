@@ -25,8 +25,8 @@ export default class Cat {
                     <p class="pt-2">${this.body}</p>
 
                     <div class="row justify-content-between px-3">
-                        <img class="paw " style="cursor: pointer" onclick="app.votesController.upVote()" src="./assets/img/bluepaw.png" alt="sad">
-                        <img class="paw" style="cursor: pointer" onclick="app.votesController.downVote()" src="./assets/img/redpaw.png" alt="sad">
+                        <img class="paw " style="cursor: pointer" onclick="app.catsController.upVote()" src="./assets/img/bluepaw.png" alt="sad">
+                        <img class="paw" style="cursor: pointer" onclick="app.catsController.downVote()" src="./assets/img/redpaw.png" alt="sad">
                         <!-- <button type="button" class="btn shadow btn-primary"><b>+</b></button>
                         <button type="button" class="btn shadow btn-danger"><b>-</b></button> -->
                     </div>
