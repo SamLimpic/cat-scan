@@ -32,11 +32,7 @@
                             id="authstate">
                         </div>
                     </div>
-                    <div class="col-1 col-md-1 p-0" style="text-align: justify;">
-                        <button type="button" class="btn text-info add-cat bg-none shadow-none"
-                            onclick="app.catsController.createCat()"><b>+</b></button>
 
-                    </div>
                 </div>
             </div>
 
@@ -46,39 +42,42 @@
     </header>
 
     <main class="container-fluid">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-            sort posts
-        </button>
+        <div class="row justify-content-end">
+            <button type="button" class="btn btn-primary add-cat shadow"
+                onclick="app.catsController.createCat()"><b>Generate Cat</b></button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-secondary shadow mx-5" data-toggle="modal" data-target="#exampleModal">
+                sort posts
+            </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sort Posts</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <span>Sort Posts By:</span>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="app.commentsController.getNewest()"
-                            data-dismiss="modal">Newest</button>
-                        <button type="button" class="btn btn-secondary" onclick="app.commentsController.getOldest()"
-                            data-dismiss="modal">Newest</button>
-                        <button type="button" class="btn btn-info" onclick="app.commentsController.getPopular()"
-                            data-dismiss="modal">Popular</button>
-                        <button type="button" class="btn btn-secondary"
-                            onclick="app.commentsController.getControversial()"
-                            data-dismiss="modal">Controversial</button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sort Posts</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-footer justify-content-around">
+                            <button type="button" class="btn btn-secondary" onclick="app.commentsController.getNewest()"
+                                data-dismiss="modal">Newest</button>
+                            <button type="button" class="btn btn-secondary" onclick="app.commentsController.getOldest()"
+                                data-dismiss="modal">Oldest</button>
+                            <button type="button" class="btn btn-secondary"
+                                onclick="app.commentsController.getPopular()" data-dismiss="modal">Popular</button>
+                            <button type="button" class="btn btn-secondary"
+                                onclick="app.commentsController.getControversial()"
+                                data-dismiss="modal">Controversial</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
 
 
 
@@ -117,6 +116,17 @@
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.11/auth0-spa-js.production.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jakeoverall/auth0provider-client/browser/AuthProvider.browser.js"></script>
     <script src="https://cdnjs.deepai.org/deepai.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
     <script src="app/main.js" type="module"></script>
 </body>
 
