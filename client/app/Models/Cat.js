@@ -3,9 +3,9 @@ export default class Cat {
   constructor(data) {
     this.body = data.body
     this.imgUrl = data.imgUrl
-    this.voteCount = this.posCount + this.negCount
     this.posCount = data.posCount
     this.negCount = data.negCount
+    this.voteCount = this.posCount + this.negCount
     this.accountId = data.accountId
   }
 
