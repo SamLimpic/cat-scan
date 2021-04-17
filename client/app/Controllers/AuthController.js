@@ -52,14 +52,14 @@ function avatarTemplate(user) {
   return user.isAuthenticated
     ? /* html */ `
     <div class="mr-2">
-      <img class="rounded-circle" src="${user.picture}" alt="${user.name}" height="30"/>
-      <span class="mx-1">${user.name}</span>
-      </div>`
+    <span class="mx-1">${user.name}</span>
+    </div>`
     : AuthService.loading
       ? /* html */ `
-      <div class="skeleton-loader dark avatar"></div>
-      <div class="skeleton-loader dark text sm mx-2"></div>`
+    <div class="skeleton-loader dark avatar"></div>
+    <div class="skeleton-loader dark text sm mx-2"></div>`
       : /* html */`
-      <div></div>
-      `
+    <div></div>
+    `
 }
+// <img class="rounded-circle " src="${user.picture}" alt="${user.name}" height="30"/>

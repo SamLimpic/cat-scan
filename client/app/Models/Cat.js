@@ -1,4 +1,4 @@
-
+import { ProxyState } from '../AppState.js'
 export default class Cat {
   constructor(data) {
     this.body = data.body
@@ -27,13 +27,42 @@ export default class Cat {
 
                     <div class="row justify-content-between px-3">
                         <img class="paw " style="cursor: pointer" onclick="app.catsController.upVote()" src="./assets/img/bluepaw.png" alt="sad">
+                        <button type="button" onclick="app.commentsController.getComments()" data-toggle="modal" data-target="#view-comments${this.id}" class="btn btn-secondary">Comments</button>
                         <img class="paw" style="cursor: pointer" onclick="app.catsController.downVote()" src="./assets/img/redpaw.png" alt="sad">
-                        <!-- <button type="button" class="btn shadow btn-primary"><b>+</b></button>
-                        <button type="button" class="btn shadow btn-danger"><b>-</b></button> -->
+                        <button type="button" class="btn shadow btn-primary"><b>+</b></button>
+                        <button type="button" class="btn shadow btn-danger"><b>-</b></button>
                     </div>
                 </div>
             </div>
+
+
+
+
+            <div class="modal fade" id="view-comments${this.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+        <div>
+        <button type="button" class="btn btn-non shadow-none text-info" onclick="app.commentsController.createComment()"><b>+</b></button><button type="button" class="btn btn-non shadow-none text-danger" data-dismiss="modal"><b>x</b></button>
+        </div>
+
+            <div class="modal-header" style="align-self: center;">
+                <h5 class="modal-title text-dark" id="exampleModalLabel"> ${this.Comments}</h5>
+            </div>
+
+        </div>
+    </div>
+</div>
         `
+  }
+
+  get Comments() {
+    let ings = ProxyState.Comments.filter(i => i.Id === this.id)
+    let template = ''
+    ings.forEach(i => template += i.Template)
+    return template
   }
 
   get VoteColor() {
