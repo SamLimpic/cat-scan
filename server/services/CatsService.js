@@ -14,7 +14,7 @@ class CatsService {
   }
 
   async edit(body) {
-    let data = await dbContext.Cats.findOneAndUpdate({ _id: body.id })
+    const data = await dbContext.Cats.findOneAndUpdate({ _id: body.id })
     if (!data) {
       throw new BadRequest('Invalid Id')
     }
@@ -22,7 +22,7 @@ class CatsService {
   }
 
   async delete(id) {
-    let data = await dbContext.Cats.findOneAndDelete({ _id: id })
+    const data = await dbContext.Cats.findOneAndDelete({ _id: id })
     if (!data) {
       throw new BadRequest('Invalid Id')
     }

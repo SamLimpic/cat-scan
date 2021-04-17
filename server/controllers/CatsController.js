@@ -11,6 +11,7 @@ export class CatsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.post)
       .delete('/:id', this.delete)
+      .put('/:id', this.edit)
   }
 
   async getAll(req, res, next) {

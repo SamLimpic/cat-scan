@@ -20,4 +20,12 @@ export default class VotesController {
       console.error(error)
     }
   }
+
+  async createVote(id) {
+    try {
+      votesService.createVote(id)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 }
