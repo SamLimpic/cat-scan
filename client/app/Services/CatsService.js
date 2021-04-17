@@ -21,7 +21,17 @@ class CatsService {
     ProxyState.cats = ProxyState.cats.filter(cat => cat.id !== id)
   }
 
-  // TODO needs vote function
+  upCat(id) {
+    const cat = ProxyState.cats.find(c => c.id === id)
+    cat.voteCount++
+    cat.posCount++
+  }
+
+  downCat(id) {
+    const cat = ProxyState.cats.find(c => c.id === id)
+    cat.voteCount++
+    cat.negCount++
+  }
 }
 
 export const catsService = new CatsService()

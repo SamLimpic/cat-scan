@@ -1,3 +1,5 @@
+import { votesService } from '../Services/VotesService'
+
 export default class Cat {
   constructor(data) {
     this.body = data.body
@@ -13,4 +15,14 @@ export default class Cat {
       <span>${this.body}, ${this.imgUrl}, ${this.voteCount}, ${this.posCount}, ${this.negCount}, ${this.accountId},</span>
         `
   }
+
+  get VoteColor() {
+    if (this.posCount === this.negCount) {
+      return 'border-dark'
+    } else if (this.posCount > this.negCount) {
+      return 'border-success'
+    } else { return 'border-danger' }
+  }
 }
+
+// insert ${this.VoteColor} at point of click

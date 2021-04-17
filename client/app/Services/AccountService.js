@@ -25,6 +25,9 @@ class AccountService {
     await api.delete('api/account/' + id)
     ProxyState.account = ProxyState.account.filter(account => account.id !== id)
   }
+
+  // change avatar?
+  // change color theme?
 }
 
 export const accountService = new AccountService()
