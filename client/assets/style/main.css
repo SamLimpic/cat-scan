@@ -10696,3 +10696,38 @@ main {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+
+.img-size{
+  object-fit: cover;
+  width:19em;
+  height: 19rem;
+}
+
+
+@media screen and (min-width:760px){
+.img-size{
+  object-fit: cover;
+  width:22em;
+  height: 22rem;
+}
+}
+
+.row-placement{
+  justify-content: center;
+}
+
+@media screen and (min-width:760px){
+  .row-placement{
+  justify-content: space-around;
+}
+}
+
+
+.voting{
+  font-size: 25px;
+}
+.paw{
+    width:2rem;
+  height: 2rem;
+}
