@@ -5,8 +5,8 @@ import { api, catFactApi } from './AxiosService.js'
 class CatsService {
   async getCats() {
     const res = await api.get('api/cats')
-    ProxyState.cats = res.data
-    // ProxyState.cats = res.data.map(c => new Cat(c))
+    // ProxyState.cats = res.data
+    ProxyState.cats = res.data.map(c => new Cat(c))
   }
 
   async createCat() {

@@ -4,9 +4,9 @@ import { BadRequest } from '../utils/Errors'
 class CatsService {
   async getAll(query = {}) {
     return await dbContext.Cats.find(query)
-      .populate('account', 'userName')
-      .populate('body')
-      .populate('imgUrl')
+    // .populate('account', 'userName')
+    // .populate('body')
+    // .populate('imgUrl')
   }
 
   async post(body) {
