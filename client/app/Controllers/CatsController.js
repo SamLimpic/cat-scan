@@ -60,23 +60,21 @@ export default class CatsController {
     }
   }
 
-  async upCat(id) {
+  async upVote(id) {
     try {
-      catsService.upCat(id)
+      await catsService.upVote(id)
       _commentButtonDraw(id)
     } catch (error) {
       console.error(error)
     }
   }
 
-  async downCat(id) {
+  async downVote(id) {
     try {
-      catsService.downCat(id)
+      await catsService.downVote(id)
       _commentButtonDraw(id)
     } catch (error) {
       console.error(error)
     }
   }
-
-  // TODO needs vote function
 }
