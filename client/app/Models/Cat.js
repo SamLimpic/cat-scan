@@ -29,8 +29,6 @@ export default class Cat {
                         <img class="paw " style="cursor: pointer" onclick="app.catsController.upVote()" src="./assets/img/bluepaw.png" alt="sad">
                         <button type="button" onclick="app.commentsController.getComments()" data-toggle="modal" data-target="#view-comments${this.id}" class="btn btn-secondary">Comments</button>
                         <img class="paw" style="cursor: pointer" onclick="app.catsController.downVote()" src="./assets/img/redpaw.png" alt="sad">
-                        <button type="button" class="btn shadow btn-primary"><b>+</b></button>
-                        <button type="button" class="btn shadow btn-danger"><b>-</b></button>
                     </div>
                 </div>
             </div>
@@ -58,20 +56,20 @@ export default class Cat {
         `
   }
 
-  get Comments() {
-    let ings = ProxyState.Comments.filter(i => i.Id === this.id)
-    let template = ''
-    ings.forEach(i => template += i.Template)
-    return template
-  }
+  // get Comments() {
+  //   let ings = ProxyState.Comments.filter(i => i.Id === this.id)
+  //   let template = ''
+  //   ings.forEach(i => template += i.Template)
+  //   return template
+  // }
 
-  get VoteColor() {
-    if (this.posCount === this.negCount) {
-      return 'border-dark'
-    } else if (this.posCount > this.negCount) {
-      return 'border-success'
-    } else {
-      return 'border-danger'
-    }
-  }
+  // get VoteColor() {
+  //   if (this.posCount === this.negCount) {
+  //     return 'border-dark'
+  //   } else if (this.posCount > this.negCount) {
+  //     return 'border-success'
+  //   } else {
+  //     return 'border-danger'
+  //   }
+  // }
 }

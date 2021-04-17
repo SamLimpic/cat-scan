@@ -1,7 +1,13 @@
+###When making a post or comment, the server attaches the author
 ##Users can Login/Logout and remain logged in on refresh
 ##Users can Post images(via url)/questions/articles
 ##The posts are listed without the corresponding comments when they are first rendered
 ##Users can Add comments
+
+
+Only authenticated users can create/edit/delete content
+
+
 
 
 Users can upvote or downvote any post or comment
@@ -12,6 +18,4 @@ The page will automatically sort based on the votes, however users can change th
 
 Users can sort posts by content (date, popular, controversial)
 
-Only authenticated users can create/edit/delete content
 
-When making a post or comment, the server attaches the author
