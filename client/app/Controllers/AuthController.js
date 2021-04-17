@@ -41,7 +41,7 @@ function authButton(user) {
   if (AuthService.loading) { return '' }
   return user.isAuthenticated
     ? /* html */ `
-    <button class="btn btn-small btn-dark text-muted" onclick="app.authController.logout()">✖</button>
+    <button class="btn p-0 btn-small btn bg-none text-danger" onclick="app.authController.logout()">...</button>
   `
     : /* html */ `
     <button class="btn btn-dark" onclick="app.authController.login()">login</button>
@@ -52,7 +52,7 @@ function avatarTemplate(user) {
   return user.isAuthenticated
     ? /* html */ `
     <div class="mr-2">
-      <img class="rounded-circle" src="${user.picture}" alt="${user.name}" height="45"/>
+      <img class="rounded-circle" src="${user.picture}" alt="${user.name}" height="30"/>
       <span class="mx-1">${user.name}</span>
       </div>`
     : AuthService.loading
