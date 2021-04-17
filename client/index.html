@@ -7,12 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/style/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
     <title>client</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
+        <nav class="navbar navbar-dark navbar-expand bg-dark text-light mb-md-2">
             <a class="navbar-brand" href="#">
                 <img src="assets/img/logo.png" width="45" height="45" alt="" loading="lazy">
                 <span class="ml-2">client</span>
@@ -31,20 +36,31 @@
 
     <main class="container-fluid">
 
-        <div class="row justify-content-center">
+        <div class="row row-placement">
 
-            <div class="card col-11 col-md-5 shadow mt-3">
-                <div class="card-body">
-                    <div class="row justify content ">
-                        <span>Username</span>
+
+
+            <!-- card -->
+            <div class="card rounded col-11 col-md-3 p-3 shadow mt-3 m-5">
+                <div class=" ">
+
+                    <div class="row justify-content-between pr-3 pl-3">
+                        <span>o <b>Username</b></span>
                         <button type="button" class="btn btn-non shadow-none text-muted"><b>...</b></button>
                     </div>
-                    <img src="" alt="cat post">
-                    <p class="card-text">Cat facts Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam
-                        nemo odit necessitatibus sint molestiae cu</p>
-                    <div class="row justify-content-around">
-                        <button type="button" class="btn shadow btn-primary"><b>+</b></button>
-                        <button type="button" class="btn shadow btn-danger"><b>-</b></button>
+
+                    <img class="img-size shadow rounded justify-content-center" src="https://placekitten.com/270/270"
+                        alt="cat post">
+
+                    <p class="pt-2">Cat facts Lorem ipsum dolor, sit amet consectetur
+                        adipisicing elit. Numquam
+                        nemo odit</p>
+
+                    <div class="row justify-content-between px-3">
+                        <img class="paw " style="cursor: pointer" src="./assets/img/bluepaw.png" alt="sad">
+                        <img class="paw" style="cursor: pointer" src="./assets/img/redpaw.png" alt="sad">
+                        <!-- <button type="button" class="btn shadow btn-primary"><b>+</b></button>
+                        <button type="button" class="btn shadow btn-danger"><b>-</b></button> -->
                     </div>
                 </div>
             </div>
@@ -54,7 +70,39 @@
 
 
 
+
+
+
         </div>
+
+
+        <div class="row justify-content-center">
+            <!-- comment  -->
+            <div class="card p-3 col-11 col-md-3 shadow my-2" style="width: 18rem;">
+                <div class="row">
+                    <div class="col-10">
+                        <h5 class="card-title">username</h5>
+                        <p class="card-text">Im think this is a cat because i know everything there is to know about
+                            cats</p>
+                    </div>
+                    <div class="col-2 voting ">
+                        <i class="fas fa-plus text-info" style="cursor: pointer"></i>
+                        <span><b>5</b></span>
+                        <i class="fa fa-minus text-danger" style="cursor: pointer"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
     </main>
     <footer class="container-fluid bg-dark text-light">
         <div class="row text-center">
