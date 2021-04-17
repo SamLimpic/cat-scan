@@ -26,7 +26,7 @@ export class CatsController extends BaseController {
   async post(req, res, next) {
     try {
       // NOTE NEVER TRUST THE CLIENT TO ADD THE CREATOR ID
-      req.body.creatorId = req.userInfo.id
+      req.body.accountId = req.userInfo.id
       const cat = await catsService.post(req.body)
       res.send(cat)
     } catch (error) {

@@ -10,7 +10,7 @@ class CatsService {
   }
 
   async createCat() {
-    deepai.setApiKey('quickstart-QUdJIGlzIGNvbWluZy4uLi4K')
+    deepai.setApiKey('e6895f90-4ea9-46fb-8938-5c1768425882')
 
     const url = await deepai.callStandardApi('text2img', {
       text: 'CAT'
@@ -19,9 +19,12 @@ class CatsService {
     const fact = await catFactApi.get('')
 
     const newCat = {
-      body: fact,
-      imgUrl: url
+      body: fact.data.fact,
+      imgUrl: url.output_url
+      // accountId: ProxyState.account.id
     }
+
+    console.log(newCat)
 
     const res = await api.post('api/cats', newCat)
     res.data.id = res.data._id
