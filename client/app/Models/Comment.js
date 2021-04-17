@@ -13,3 +13,6 @@ export default class Comment {
           `
   }
 }
+
+
+// turnary for comment color `class="${ this.voteBool ? border-success : border-danger}"`
