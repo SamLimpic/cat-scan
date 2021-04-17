@@ -77,6 +77,4 @@ export default class CatsController {
       console.error(error)
     }
   }
-
-  // TODO needs vote function
 }
