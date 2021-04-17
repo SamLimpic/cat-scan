@@ -33,18 +33,18 @@ export default class CatsController {
 
   async createCat() {
     try {
-      window.event.preventDefault()
-      const form = window.event.target
-      const newCat = {
-        // @ts-ignore
-        body: form.body.value,
-        // @ts-ignore
-        imgUrl: form.imgUrl.value
-      }
-      await catsService.createCat(newCat)
+      // window.event.preventDefault()
+      // const form = window.event.target
+      // const newCat = {
+      //   // @ts-ignore
+      //   body: form.body.value,
+      //   // @ts-ignore
+      //   imgUrl: form.imgUrl.value
+      // } NOTE this section is for form submission
+      await catsService.createCat()
 
       // @ts-ignore
-      form.reset()
+      // form.reset()
 
       // $('#new-cat-form').modal('hide') | <<< NOTE NOT SURE ABOUT THIS LINE OS I COMMENTED IT OUT
     } catch (error) {
