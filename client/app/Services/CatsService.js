@@ -1,6 +1,6 @@
 import { ProxyState } from '../AppState.js'
 import Cat from '../Models/Cat.js'
-import { api } from './AxiosService.js'
+import { api, catFactApi } from './AxiosService.js'
 
 class CatsService {
   async getCats() {
@@ -9,7 +9,20 @@ class CatsService {
     // ProxyState.cats = res.data.map(c => new Cat(c))
   }
 
-  async createCat(newCat) {
+  async createCat() {
+    deepai.setApiKey('quickstart-QUdJIGlzIGNvbWluZy4uLi4K')
+
+    const url = await deepai.callStandardApi('text2img', {
+      text: 'CAT'
+    })
+
+    const fact = await catFactApi.get('')
+
+    const newCat = {
+      body: fact,
+      imgUrl: url
+    }
+
     const res = await api.post('api/cats', newCat)
     res.data.id = res.data._id
     const cat = new Cat(res.data)
