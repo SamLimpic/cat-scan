@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { catsService } from '../services/CatsService'
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
@@ -37,7 +38,7 @@ export class CatsController extends BaseController {
   async edit(req, res, next) {
     try {
       req.body.id = req.params.id
-      const data = await catsService.edit(req.body)
+      let data = await catsService.edit(req.body)
       return res.send(data)
     } catch (error) {
       next(error)

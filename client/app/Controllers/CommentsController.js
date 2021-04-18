@@ -3,10 +3,7 @@ import { commentsService } from '../Services/CommentsService.js'
 
 // Private
 function _draw() {
-  const comments = ProxyState.comments
-  let template = ''
-  comments.forEach(comment => { template += comment.Template })
-  document.getElementById('comments').innerHTML = template
+
 }
 
 // Public
@@ -17,9 +14,11 @@ export default class CommentsController {
     // this.getComments() | NOTE >>> should draw when button is clicked right?
   }
 
-  async getComments() {
+  async getComments(id) {
     try {
-      await commentsService.getComments()
+      document.getElementById(`${id + '-comments'}`).classList.remove('d-none')
+      document.getElementById(`${id + '-img'}`).classList.add('d-none')
+      await commentsService.getByCatId(id)
     } catch (error) {
       console.error(error)
     }

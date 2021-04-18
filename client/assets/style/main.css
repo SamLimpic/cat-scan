@@ -10740,3 +10740,24 @@ main {
   width:10 rem;
   height:10 rem 
 }
+
+.cat-dark {
+  border: 10px;
+  border-color: var(--dark);
+  border-style: solid;
+  border-radius: 10px
+}
+
+.cat-success {
+  border: 10px;
+  border-color: var(--success);
+  border-style: solid;
+  border-radius: 10px
+}
+
+.cat-danger {
+  border: 10px;
+  border-color: var(--danger);
+  border-style: solid;
+  border-radius: 10px
+}

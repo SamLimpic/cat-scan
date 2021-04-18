@@ -19,10 +19,10 @@ class CommentsService {
     throw new Error('Method not implemented.')
   }
 
-  async getComments() {
-    const res = await api.get('api/comments')
+  async getByCatId(id) {
+    const res = await api.get('api/cats/' + id + 'comments')
     ProxyState.comments = res.data
-    // ProxyState.comments = res.data.map(c => new Comment(c))
+    ProxyState.comments = res.data.map(c => new Comment(c))
   }
 
   async createComment(newComment) {

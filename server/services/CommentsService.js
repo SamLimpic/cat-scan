@@ -8,12 +8,17 @@ class CommentsService {
       .populate('body')
   }
 
+  async find(query = {}) {
+    const values = await dbContext.Comments.find(query)
+    return values
+  }
+
   async post(body) {
     return await dbContext.Comments.create(body)
   }
 
   async edit(body) {
-    let data = await dbContext.Comments.findOneAndUpdate({ _id: body.id })
+    const data = await dbContext.Comments.findOneAndUpdate({ _id: body.id })
     if (!data) {
       throw new BadRequest('Invalid Id')
     }
@@ -21,7 +26,7 @@ class CommentsService {
   }
 
   async delete(id) {
-    let data = await dbContext.Comments.findOneAndDelete({ _id: id })
+    const data = await dbContext.Comments.findOneAndDelete({ _id: id })
     if (!data) {
       throw new BadRequest('Invalid Id')
     }

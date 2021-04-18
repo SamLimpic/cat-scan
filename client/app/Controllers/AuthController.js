@@ -51,7 +51,7 @@ function authButton(user) {
 function avatarTemplate(user) {
   return ProxyState.user.isAuthenticated
     ? /* html */ `
-    <button type="button" class="col-md-2 col-4 btn btn-dark shadow mr-auto" data-toggle="modal"
+            <button type="button" class="col-md-2 col-4 btn btn-dark shadow mr-auto" data-toggle="modal"
                 data-target="#exampleModal">
                 Sort Posts
             </button>

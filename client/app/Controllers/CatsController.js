@@ -56,9 +56,12 @@ export default class CatsController {
 
   async upVote(id) {
     try {
+      // const newCat = {
+      //   posCount: +1,
+      //   voteCount: +1,
+      //   disabled: 'disabled'
+      // }
       await catsService.upVote(id)
-      const cat = ProxyState.cats.find(c => c.id === id)
-      cat.disabled = 'disabled'
       document.getElementById(`${id + '-neg'}`).classList.add('text-secondary')
       document.getElementById(`${id + '-neg'}`).classList.remove('text-danger')
       document.getElementById(`${id + '-cat'}`).classList.add('d-none')
@@ -71,12 +74,18 @@ export default class CatsController {
   async downVote(id) {
     try {
       await catsService.downVote(id)
-      const cat = ProxyState.cats.find(c => c.id === id)
-      cat.disabled = 'disabled'
       document.getElementById(`${id + '-pos'}`).classList.add('text-secondary')
       document.getElementById(`${id + '-pos'}`).classList.remove('text-info')
       document.getElementById(`${id + '-cat'}`).classList.add('d-none')
       document.getElementById(`${id + '-comment'}`).classList.remove('d-none')
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async catify(id) {
+    try {
+      await catsService.catify(id)
     } catch (error) {
       console.error(error)
     }
