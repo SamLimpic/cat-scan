@@ -26,9 +26,9 @@ export default class Cat {
                             <button type="button" class="btn btn-dark dropdown-toggle p-0 pr-2 pl-1 mr-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" onclick="app.catsController.catify('${this.id}')">Catify</a>
+                                <a class="dropdown-item" onclick="app.catsController.catify('${this.id}')">"Catify"</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" onclick="app.catsController.deleteCat('${this.id}')">Delete Cat</a>
+                                <a class="dropdown-item" onclick="app.catsController.deleteCat('${this.id}')">Delete "Cat"</a>
                             </div>
                         </div>
                         ${avatar}
