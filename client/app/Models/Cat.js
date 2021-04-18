@@ -100,7 +100,7 @@ export default class Cat {
         if (this.posCount === this.negCount * -1) {
             return '-dark'
         } else if (this.posCount > this.negCount * -1) {
-            return '-success'
+            return '-info'
         } else {
             return '-danger'
         }

@@ -10748,9 +10748,9 @@ main {
   border-radius: 10px
 }
 
-.cat-success {
+.cat-info {
   border: 10px;
-  border-color: var(--success);
+  border-color: var(--info);
   border-style: solid;
   border-radius: 10px
 }
