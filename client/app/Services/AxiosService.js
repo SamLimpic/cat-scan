@@ -10,7 +10,7 @@ export const api = axios.create({
 
 // @ts-ignore
 export const catFactApi = axios.create({
-  baseURL: 'https://catfact.ninja/fact?max_length=75',
+  baseURL: 'https://catfact.ninja/fact?max_length=50',
   timeout: 30000
 })
 

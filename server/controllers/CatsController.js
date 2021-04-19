@@ -2,12 +2,15 @@
 import { catsService } from '../services/CatsService'
 import BaseController from '../utils/BaseController'
 import { Auth0Provider } from '@bcwdev/auth0provider'
+import { commentsService } from '../services/CommentsService'
 
 export class CatsController extends BaseController {
   constructor() {
     super('api/cats')
     this.router
       .get('', this.getAll)
+      .get('/:id', this.getById)
+      .get('/:id/comments', this.getCommentsByCatId)
       // NOTE: Beyond this point all routes require Authorization tokens (the user must be logged in)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post('', this.post)
@@ -19,6 +22,24 @@ export class CatsController extends BaseController {
     try {
       const cats = await catsService.getAll(req.query)
       res.send(cats)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getById(req, res, next) {
+    try {
+      const cats = await catsService.findOne({ _id: req.params.id })
+      return res.send(cats)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getCommentsByCatId(req, res, next) {
+    try {
+      const comments = await commentsService.find({ catId: req.params.id })
+      return res.send(comments)
     } catch (error) {
       next(error)
     }

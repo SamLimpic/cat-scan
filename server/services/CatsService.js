@@ -9,6 +9,14 @@ class CatsService {
     // .populate('imgUrl')
   }
 
+  async findOne(id) {
+    const data = await dbContext.Cats.findOne({ _id: id })
+    if (!data) {
+      throw new BadRequest('Invalid Id')
+    }
+    return data
+  }
+
   async post(body) {
     return await dbContext.Cats.create(body)
   }

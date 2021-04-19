@@ -4,13 +4,16 @@ import { BadRequest } from '../utils/Errors'
 class CommentsService {
   async getAll(query = {}) {
     return await dbContext.Comments.find(query)
-      .populate('account', 'userName')
-      .populate('body')
+    // .populate('account', 'userName')
+    // .populate('body')
   }
 
   async find(query = {}) {
-    const values = await dbContext.Comments.find(query)
-    return values
+    const comments = await dbContext.Comments.find(query)
+    if (!comments) {
+      throw new BadRequest('Invalid Id')
+    }
+    return comments
   }
 
   async post(body) {

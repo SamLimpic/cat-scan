@@ -10728,8 +10728,8 @@ main {
   font-size: 25px;
 }
 .paw{
-  width:3rem;
-  height: 3rem;
+  width:2.5rem;
+  height: 2.5rem;
 }
 
 .title-sizing{
@@ -10760,4 +10760,23 @@ main {
   border-color: var(--danger);
   border-style: solid;
   border-radius: 10px
+}
+
+.locked-scroll {
+  height: 10rem;
+  overflow-x:hidden;
+  overflow-y: scroll;
+}
+
+.locked-scroll::-webkit-scrollbar {
+  width: .2em;
+}
+ 
+.locked-scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+.locked-scroll::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }

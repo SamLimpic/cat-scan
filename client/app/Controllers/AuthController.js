@@ -51,11 +51,9 @@ function authButton(user) {
 function avatarTemplate(user) {
   return ProxyState.user.isAuthenticated
     ? /* html */ `
-            <button type="button" class="col-md-2 col-4 btn btn-dark shadow mr-auto" data-toggle="modal"
-                data-target="#exampleModal">
-                Sort Posts
-            </button>
-    <div class="mr-2">
+            <button type="button" class="col-md-2 col-5 btn btn-dark shadow mx-0 px-0"
+                onclick="app.catsController.createCat()"><b>Generate "Cat"</b></button>
+    <div class="col-md-2 col-6 mx-1">
     ${user.avatar}
     <span class="mx-1 text-center">${user.username}</span>
     </div>`

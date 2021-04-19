@@ -4,7 +4,7 @@ const ObjectId = Schema.Types.ObjectId
 
 const Vote = new Schema(
   {
-    voteBoolean: { type: String, required: true, default: null },
+    // voteBool: { type: String, required: true, default: null },
     accountId: { type: ObjectId, ref: 'Account', required: true },
     catId: { type: ObjectId, ref: 'Cat', required: true }
   },

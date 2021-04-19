@@ -1,23 +1,30 @@
+import { ProxyState } from '../AppState.js'
+
 export default class Comment {
   constructor(data) {
     this.body = data.body
-    this.voteBool = data.voteBool
+    // this.voteBool = data.voteBool
     this.voteCount = data.voteCount
     this.accountId = data.accountId
     this.catId = data.catId
   }
 
   get Template() {
-    return /* html */ `
-                <div class="card p-3 col-11 col-md-3 shadow my-2 " style="width: 18rem;">
-                <div class="row">
-                    <div class="col-12">
-                        <h5 class="card-title">${this.accountId}</h5>
-                        <p class="card-text">${this.body}</p>
-                    </div>
+    const username = ProxyState.account.username
 
+    return /* html */ `
+              <div class="card shadow bg-secondary text-light py-1 my-2 mx-1">
+                <div class="row align-items-center pl-2">
+                    <div class="col-12">
+                       <p class="text-left pb-0 mb-0"><b>${username}</b></p>
+                    </div>
                 </div>
-            </div>
+                <div class="row align-items-center pl-2">
+                    <div class="col-12">
+                        <p class="text-left pt-0 my-0">${this.body}</p>
+                    </div>
+                </div>
+              </div>
             `
   }
 }

@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const ObjectId = Schema.Types.ObjectId
 
-const Comment = new Schema(
+const Value = new Schema(
   {
     body: { type: String, required: true },
     voteBoolean: { type: Boolean, required: true },
@@ -14,4 +14,4 @@ const Comment = new Schema(
   { timestamps: true, toJSON: { virtuals: true } }
 )
 
-export default Comment
+export default Value

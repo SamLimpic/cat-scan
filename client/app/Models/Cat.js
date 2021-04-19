@@ -40,29 +40,30 @@ export default class Cat {
                         </div>
                     </div>
 
-                    <div>
-                        <img id="${this.id + '-img'}" class="img-fluid shadow rounded justify-content-center" src="${this.imgUrl}"
+                    <div class="row justify-content-center px-2">
+                        <img id="${this.id + '-img'}" class="img-fluid shadow rounded" src="${this.imgUrl}"
                             alt="cat post">
-                        <div id="${this.id + '-comments'}" class="d-none" >
-                            <ul class="card shadow d-none">
+                        <div id="${this.id + '-comments'}" class="col-12 border-bottom border-dark d-none" >
+                            <div class="locked-scroll">
                             ${this.Comments}
-                            </ul>
-                            <form onSubmit="app.commentsController.createComment()">
-                              <div class="form-group">
-                                <label for="formGroupExampleInput">Defend your position!</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Is this a cat?">
+                            </div>
+                            <form onSubmit="app.commentsController.createComment('${this.id}')">
+                              <div class="form-group mt-3">
+                                <label for="formGroupExampleInput"><b><u>Defend your position!</u></b></label>
+                                <input type="text" name="body" class="form-control" id="body" placeholder="Is this a cat?" maxLength="30">
                               </div>
                             </form>
                         </div>
                     </div>
 
-                    <p class="pt-2 px-3">${this.body}</p>
+                    <p id="${this.id + '-body'}" class="pt-2 px-3 pb-1 mb-0 border-bottom border-dark"><i>${this.body}</i></p>
 
                     <div class="row justify-content-between align-items-center px-2">
-                        <button class="col-3 bg-transparent border-none shadow-none btn text-center" onclick="app.catsController.upVote('${this.id}')"><h2><i id="${this.id + '-pos'}" class="fas fa-paw text-info"></i></h2></button>
-                          <button id="${this.id + '-comment'}" class="col-6 btn btn-dark my-2 d-none" type="button" onclick="app.commentsController.getComments('${this.id}')" data-toggle="modal" data-target="#view-comments${this.id}" disabled>Comments</button>
-                        <span id="${this.id + '-cat'}" class="col-6"><h5>Is this a cat?</h5></span>
-                        <button class=" col-3 bg-transparent border-none shadow-none btn text-center" onclick="app.catsController.downVote('${this.id}')"><h2><i id="${this.id + '-neg'}" class="fas fa-paw text-danger"></i></h2></button>
+                        <button class="col-3 bg-transparent border-none shadow-none btn text-center" onclick="app.catsController.upVote('${this.id}')"><h1><i id="${this.id + '-pos'}" class="fas fa-paw text-info"></i></h1></button>
+                          <button id="${this.id + '-comment'}" class="col-6 btn btn-dark my-2 d-none" type="button" onclick="app.commentsController.revealComments('${this.id}')">Comments</button>
+                          <button id="${this.id + '-back'}" class="col-6 btn btn-secondary my-2 d-none" type="button" onclick="app.commentsController.hideComments('${this.id}')">Go Back</button>
+                        <span id="${this.id + '-cat'}" class="col-6"><h4>Is this a cat?</h4></span>
+                        <button class=" col-3 bg-transparent border-none shadow-none btn text-center" onclick="app.catsController.downVote('${this.id}')"><h1><i id="${this.id + '-neg'}" class="fas fa-paw text-danger"></i></h1></button>
                     </div>
                 </div>
             </div>
@@ -90,9 +91,9 @@ export default class Cat {
     //     }
 
     get Comments() {
-        const ings = ProxyState.comments.filter(i => i.catId === this.id)
+        const comments = ProxyState.comments.filter(comment => comment.catId === this.id)
         let template = ''
-        ings.forEach(i => template += i.Template)
+        comments.forEach(comment => template += comment.Template)
         return template
     }
 

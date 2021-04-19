@@ -15,6 +15,7 @@ export default class CatsController {
   constructor() {
     ProxyState.on('account', this.getCats)
     ProxyState.on('cats', _draw)
+    ProxyState.on('comments', _draw)
   }
 
   async getCats() {
